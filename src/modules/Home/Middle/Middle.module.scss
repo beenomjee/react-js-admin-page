@@ -1,0 +1,67 @@
+@import "../../../styles";
+
+.container {
+  padding: 0rem 5rem 2rem;
+  @include flex(row, stretch, space-between, 2rem);
+
+  @include query(900px) {
+    flex-direction: column;
+  }
+
+  @include mobile {
+    padding: 0rem 2rem 2rem;
+  }
+
+  & > div {
+    overflow: hidden;
+    flex: 1;
+  }
+}
+
+.card {
+  background-color: $white;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.table {
+  overflow-x: auto;
+
+  & > table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+
+    & > thead > tr > th {
+      background-color: rgba($color: $dark, $alpha: 0.1);
+      padding: 1rem 2rem;
+      color: rgba($color: $dark, $alpha: 0.6);
+      width: 33.3%;
+      text-align: left;
+
+      &:nth-child(1) {
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+      }
+      &:last-child {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+    }
+
+    & > tbody > tr > td {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba($color: $dark, $alpha: 0.1);
+      & > div {
+        @include flex(row, center, flex-start, 1rem);
+        & > img {
+          @include avatar(3rem);
+        }
+        & > span {
+          @include font(1.2, 600, 1);
+          color: rgba($color: $dark, $alpha: 0.8);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../styles";
+
+.container {
+  @include flex(row, stretch, flex-start);
+  height: 100vh;
+
+  & > .sidebar {
+    @include position(sticky, 0, 0);
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  & > .page {
+    background-color: $bg-color;
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
+
+    & > .header {
+      @include position(sticky, 0, 0);
+      z-index: 90;
+    }
+  }
+}

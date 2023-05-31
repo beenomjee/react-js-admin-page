@@ -1,0 +1,94 @@
+@import "../../styles";
+
+.container {
+  transition: width 200ms;
+  background-color: $white;
+
+  &.open {
+    width: 250px;
+    & *[name="close"] {
+      display: none;
+    }
+
+    @include mobile {
+      @include position(fixed, 0, 0, unset, 0);
+    }
+  }
+
+  &.close {
+    width: 80px;
+    & *[name="open"] {
+      display: none;
+    }
+  }
+
+  & > .top {
+    @include flex();
+    padding: 10px 20px;
+    height: 60px;
+
+    & > a {
+      @include font(40px, 700, 1);
+      color: $primary;
+    }
+
+    & > button {
+      all: unset;
+      @include center();
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+      color: $dark;
+      font-size: 20px;
+
+      &:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  & > .middle {
+    padding: 10px 20px;
+    @include flex(column, stretch, flex-start, 3px);
+
+    & > a,
+    & > label {
+      @include flex(row, center, flex-start, 10px);
+      padding: 10px;
+      @include font(14px, 500);
+      color: rgba($color: $dark, $alpha: 0.5);
+      border-radius: 5px;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: $secondary;
+      }
+
+      &.selected {
+        color: rgba($color: $black, $alpha: 0.8);
+        font-weight: 700;
+        background-color: $secondary;
+      }
+
+      & > span:nth-child(1) {
+        font-size: 20px;
+        line-height: 1;
+        @include center();
+      }
+    }
+
+    & > label {
+      background-color: $bg-color;
+      &:hover {
+        background-color: $bg-color;
+      }
+      margin-bottom: 20px;
+
+      & > input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+    }
+  }
+}

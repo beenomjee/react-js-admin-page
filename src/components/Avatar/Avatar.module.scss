@@ -1,0 +1,13 @@
+@import "../../styles";
+
+.span {
+  //   background-color: $tertiary;
+  background-color: var(--bg);
+  color: $white;
+  @include center();
+  padding: 1rem;
+  width: 3.6rem;
+  aspect-ratio: 1/1;
+  @include font(1.6rem, 500);
+  border-radius: 50%;
+}
